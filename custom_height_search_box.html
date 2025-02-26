@@ -36,9 +36,10 @@
     <script>
         function applySearch() {
         var searchText = document.getElementById("searchInput").value;
-        var tableauURL = "https://public.tableau.com/app/profile/strome.it/viz/Tradingstrategytesting/Dashboard1";
-        var updatedURL = tableauURL + "?Search Parameter=" + encodeURIComponent(searchText) + "&:refresh=yes";
-        window.top.location.href = updatedURL;
+        var currentURL = window.location.href.split('?')[0];
+        var updatedURL = currentURL + "?Search Parameter=" + encodeURIComponent(searchText) + "&:refresh=yes";
+        window.history.pushState({}, "", updatedURL);
+        location.reload();
         }
     </script>
 </body>
