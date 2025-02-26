@@ -41,11 +41,9 @@
                 alert("Please enter a valid search term.");
                 return;
             }
-            var currentURL = window.location.origin + window.location.pathname;
-            alert(currentURL);
-            var updatedURL = currentURL + "?Search Parameter=" + encodeURIComponent(searchText) + "&:refresh=yes";
-            alert(updatedURL);
-            window.location.href = updatedURL;
+            var tableauURL = "https://public.tableau.com/app/profile/strome.it/viz/Tradingstrategytesting/Dashboard1";
+            var updatedURL = tableauURL + "?Search Parameter=" + encodeURIComponent(searchText) + "&:refresh=yes";
+            window.top.location.href = updatedURL;
         }
     </script>
 </body>
