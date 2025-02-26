@@ -43,8 +43,11 @@
             }
             var tableauURL = "https://public.tableau.com/app/profile/strome.it/viz/Tradingstrategytesting/Dashboard1";
             var updatedURL = tableauURL + "?Search Parameter=" + encodeURIComponent(searchText) + "&:refresh=yes";
-            alert("7 New URL: " + updatedURL)
-            window.open(updatedURL, "_self");
+            alert("8 New URL: " + updatedURL)
+            if (window.top !== window.self) {
+                window.top.location.href = updatedURL;
+            } else {
+                window.location.href = updatedURL;
         }
     </script>
 </body>
