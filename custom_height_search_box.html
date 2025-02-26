@@ -35,11 +35,15 @@
 
     <script>
         function applySearch() {
-        var searchText = document.getElementById("searchInput").value;
-        var currentURL = window.location.href.split('?')[0];
-        var updatedURL = currentURL + "?Search Parameter=" + encodeURIComponent(searchText) + "&:refresh=yes";
-        window.history.pushState({}, "", updatedURL);
-        location.reload();
+            var searchText = document.getElementById("searchInput").value;
+    
+            if (searchText.trim() === "") {
+                alert("Please enter a valid search term.");
+                return;
+            }
+            var currentURL = window.location.origin + window.location.pathname;
+            var updatedURL = currentURL + "?Search Parameter=" + encodeURIComponent(searchText) + "&:refresh=yes";
+            window.location.href = updatedURL;
         }
     </script>
 </body>
