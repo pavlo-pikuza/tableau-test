@@ -9,28 +9,46 @@
             font-family: Arial, sans-serif;
             text-align: center;
         }
-        input {
-            width: 100%;
+        #searchContainer {
+            width: 300px;
             padding: 10px;
-            font-size: 16px;
-            border: 2px solid #333;
-            border-radius: 5px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            margin: auto;
         }
+    
+        select, button {
+            width: 90%;
+            padding: 8px;
+            margin-top: 5px;
+            font-size: 14px;
+        }
+    
         button {
-            margin-top: 10px;
-            padding: 10px;
-            font-size: 16px;
-            cursor: pointer;
             background-color: #007bff;
             color: white;
             border: none;
+            cursor: pointer;
             border-radius: 5px;
+        }
+    
+        button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <h2>Search in Tableau</h2>
-    <input type="text" id="searchInput" placeholder="Enter search text...">
+    <label for="searchInput">Select Trading Pair:</label>
+    <select id="searchInput">
+        <option value="BTCUSDT">BTCUSDT</option>
+        <option value="ETHUSDT">ETHUSDT</option>
+        <option value="SOLUSDT">SOLUSDT</option>
+        <option value="BNBUSDT">BNBUSDT</option>
+        <option value="XRPUSDT">XRPUSDT</option>
+    </select>
     <button onclick="applySearch()">Search</button>
 
     <script>
@@ -43,7 +61,7 @@
             }
             var tableauURL = "https://public.tableau.com/app/profile/strome.it/viz/Tradingstrategytesting/Dashboard1";
             var updatedURL = tableauURL + "?Search Parameter=" + encodeURIComponent(searchText) + "&:refresh=yes";
-            alert("8 New URL: " + updatedURL)
+            alert("9 New URL: " + updatedURL)
             if (window.top !== window.self) {
                 window.top.location.href = updatedURL;
             } else {
