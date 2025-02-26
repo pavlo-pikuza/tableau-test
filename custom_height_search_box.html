@@ -42,7 +42,9 @@
                 return;
             }
             var currentURL = window.location.origin + window.location.pathname;
+            alert(currentURL);
             var updatedURL = currentURL + "?Search Parameter=" + encodeURIComponent(searchText) + "&:refresh=yes";
+            alert(updatedURL);
             window.location.href = updatedURL;
         }
     </script>
